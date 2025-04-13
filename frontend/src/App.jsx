@@ -16,6 +16,7 @@ import CollegeCategory from "./components/categories/CollegeCategory";
 import CategoryPage from "./pages/CategoryPage";
 import YoutubeCategory from "./components/categories/YoutubeCategory";
 import TeacherProfile from "./components/categories/TeacherProfile";
+import AIChatPage from "./pages/AIChatPage";
 
 function App() {
   return (
@@ -67,6 +68,14 @@ function App() {
           </Route>
 
           <Route path="/category/teacher/:id" element={<TeacherProfile />} />
+          <Route
+            path="/ai-chat"
+            element={
+              <ProtectedRoute>
+                <AIChatPage />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </AuthProvider>

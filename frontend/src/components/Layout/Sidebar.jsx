@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { FaRobot } from "react-icons/fa";
 
 const Sidebar = () => {
   const { user } = useAuth();
@@ -38,6 +39,15 @@ const Sidebar = () => {
           className="block px-4 py-2 hover:bg-gray-700 rounded"
         >
           Video Call
+        </Link>
+        <Link
+          to="/ai-chat"
+          className="block px-4 py-2 hover:bg-gray-700 rounded-md"
+        >
+          <span className="flex items-center">
+            <FaRobot className="mr-2" />
+            AI Assistant
+          </span>
         </Link>
       </nav>
     </div>
