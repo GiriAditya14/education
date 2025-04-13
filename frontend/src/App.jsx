@@ -17,6 +17,9 @@ import CategoryPage from "./pages/CategoryPage";
 import YoutubeCategory from "./components/categories/YoutubeCategory";
 import TeacherProfile from "./components/categories/TeacherProfile";
 import AIChatPage from "./pages/AIChatPage";
+import JoinVideoPage from './pages/JoinVideoPage';
+import ZegoCallRoom from './components/VideoCall/ZegoCallRoom';
+import EdtechCategory from "./components/categories/EdtechCategory";
 
 function App() {
   return (
@@ -25,6 +28,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/join" element={<JoinVideoPage />} />
+        <Route path="/room/:roomID" element={<ZegoCallRoom />} />
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route
@@ -51,19 +56,12 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/video-call"
-            element={
-              <ProtectedRoute>
-                <VideoCallPage />
-              </ProtectedRoute>
-            }
-          />
+          
           <Route path="*" element={<NotFoundPage />} />
 
           <Route path="/category" element={<CategoryPage />}>
             <Route path="college" element={<CollegeCategory />} />
-            {/* <Route path="edtech" element={<EdtechCategory />} /> */}
+            <Route path="edtech" element={<EdtechCategory />} />
             <Route path="youtube" element={<YoutubeCategory />} />
           </Route>
 
@@ -84,19 +82,3 @@ function App() {
 
 export default App;
 
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <h1 className="text-3xl font-bold underline">
-//     Hello world!
-//   </h1>
-//   )
-// }
-
-// export default App
