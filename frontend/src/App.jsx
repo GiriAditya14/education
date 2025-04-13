@@ -10,15 +10,18 @@ import FeedbackPage from './pages/FeedbackPage';
 import TeacherDashboard from './pages/TeacherDashboard';
 import VideoCallPage from './pages/VideoCallPage';
 import Layout from './components/Layout/Layout';
+import LandingPage from './pages/LandigPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
+      <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/questions" element={
             <ProtectedRoute>
               <QuestionsPage />
@@ -39,6 +42,7 @@ function App() {
               <VideoCallPage />
             </ProtectedRoute>
           } />
+              <Route path="*" element={<NotFoundPage/>} />
         </Route>
       </Routes>
     </AuthProvider>
