@@ -28,6 +28,33 @@ A full-stack web application connecting students and teachers with real-time Q&A
 
 ---
 
+
+##   Prototype
+
+#### Top platform
+![Chatbot Image Upload](/frontend/public/topPlatform.png) |
+
+#### Top Mentors
+![Chatbot Image Upload](/frontend/public/topMentor.png) |
+
+#### Top Institute Mentor
+
+![Chatbot Image Upload](/frontend/public/clgMentor.png) |
+
+### AI Chatbot
+
+![Chatbot Image Upload](/frontend/public/chatBot.png) |
+
+---
+### Video Calling 
+
+![Video Call](/frontend/public/vdoChat.png) |
+
+###  Video Demo
+
+
+<a href="https://youtu.be/pAkQksQzP18D"><img src="path/to/custom_thumbnail.jpg" width="400"></a>
+
 ##  Tech Stack
 
 ### Frontend
