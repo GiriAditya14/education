@@ -1,4 +1,4 @@
-import VideoCall from '../components/VideoCall/VideoCall';
+import VideoCall from '../components/VideoCall/ZegoCallRoom';
 
 const VideoCallPage = () => {
   return (
