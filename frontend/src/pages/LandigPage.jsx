@@ -32,6 +32,11 @@ const LandingPage = () => {
       description: "Engage in live learning sessions with screen sharing",
       icon: "🎥",
     },
+    {
+      title: "Explore Categories",
+      description: "Dive into a wide range of subjects and courses",
+      icon: "🗂️",
+    },
   ];
 
   const handleLogout = () => {
@@ -116,7 +121,7 @@ const LandingPage = () => {
             </Link>
           )}
         </div>
-        {user && (
+        {/* {user && (
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
             <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
               <div className="text-blue-400 text-3xl mb-3">📚</div>
@@ -153,6 +158,77 @@ const LandingPage = () => {
                 className="mt-4 inline-block text-green-400 hover:text-green-300 text-sm"
               >
                 Start Call →
+              </Link>
+            </div>
+          </div>
+        )} */}
+        {user && (
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto mt-12">
+            {/* Ask Questions */}
+            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all">
+              <div className="text-blue-400 text-3xl mb-3">
+                {features[1].icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">
+                {features[1].title}
+              </h3>
+              <p className="text-gray-400">{features[1].description}</p>
+              <Link
+                to="/questions"
+                className="mt-4 inline-block text-blue-400 hover:text-blue-300 text-sm"
+              >
+                View Questions →
+              </Link>
+            </div>
+
+            {/* Provide Feedback */}
+            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-all">
+              <div className="text-purple-400 text-3xl mb-3">
+                {features[0].icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">
+                {features[0].title}
+              </h3>
+              <p className="text-gray-400">{features[0].description}</p>
+              <Link
+                to="/feedback"
+                className="mt-4 inline-block text-purple-400 hover:text-purple-300 text-sm"
+              >
+                Give Feedback →
+              </Link>
+            </div>
+
+            {/* Video Calls */}
+            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-green-500 transition-all">
+              <div className="text-green-400 text-3xl mb-3">
+                {features[2].icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">
+                {features[2].title}
+              </h3>
+              <p className="text-gray-400">{features[2].description}</p>
+              <Link
+                to="/video-call"
+                className="mt-4 inline-block text-green-400 hover:text-green-300 text-sm"
+              >
+                Start Call →
+              </Link>
+            </div>
+
+            {/* Explore Categories */}
+            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-yellow-500 transition-all">
+              <div className="text-yellow-400 text-3xl mb-3">
+                {features[3].icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">
+                {features[3].title}
+              </h3>
+              <p className="text-gray-400">{features[3].description}</p>
+              <Link
+                to="/category"
+                className="mt-4 inline-block text-yellow-400 hover:text-yellow-300 text-sm"
+              >
+                Explore →
               </Link>
             </div>
           </div>
