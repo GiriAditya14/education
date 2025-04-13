@@ -53,7 +53,7 @@ A full-stack web application connecting students and teachers with real-time Q&A
 ###  Video Demo
 
 
-<a href="https://youtu.be/pAkQksQzP18D"><img src="path/to/custom_thumbnail.jpg" width="400"></a>
+<a href="https://youtu.be/pAkQksQzP18D"><img src="https://imgs.search.brave.com/H330hjXg0E35DY7KPYi5ItE21yGS7qaIlfM-HpFD67Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZkL1lvdVR1YmVf/ZnVsbC1jb2xvcl9p/Y29uXygyMDI0KS5z/dmc" width="50"></a>
 
 ##  Tech Stack
 
