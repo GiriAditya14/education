@@ -19,26 +19,34 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-white">Login</h2>
-        {error && <div className="mb-4 p-2 bg-red-600 text-white rounded-md">{error}</div>}
+    <div className="min-h-screen flex items-center justify-center bg-gray-900/90 text-white px-4">
+      <div className="bg-gray-800/90 p-8 rounded-xl shadow-xl w-full max-w-md border border-gray-800">
+        <h2 className="text-3xl font-bold mb-6 text-center">Welcome Back</h2>
+        
+        {error && (
+          <div className="mb-4 p-3 bg-red-600/90 text-white rounded-md shadow">
+            {error}
+          </div>
+        )}
+        
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-300 mb-2" htmlFor="email">
-              Email
+          <div className="mb-5">
+            <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="email">
+              Email Address
             </label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full px-3 py-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="you@example.com"
               required
             />
           </div>
+
           <div className="mb-6">
-            <label className="block text-gray-300 mb-2" htmlFor="password">
+            <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="password">
               Password
             </label>
             <input
@@ -46,22 +54,25 @@ const Login = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full px-3 py-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="••••••••"
               required
             />
           </div>
+
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-200"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-200 font-semibold shadow-md"
           >
-            Login
+            Sign In
           </button>
         </form>
-        <p className="mt-4 text-center text-gray-400">
-          Don't have an account?{' '}
+
+        <p className="mt-6 text-sm text-center text-gray-400">
+          Don&apos;t have an account?{' '}
           <button
             onClick={() => navigate('/register')}
-            className="text-blue-400 hover:text-blue-300"
+            className="text-blue-400 hover:text-blue-300 underline transition"
           >
             Register here
           </button>
