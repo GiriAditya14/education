@@ -10,6 +10,7 @@ import questionRoutes from "../routes/question.js";
 import feedbackRoutes from "../routes/feedback.js";
 import teacherRoutes from "../routes/teacher.js";
 import zegoRoutes from "../routes/zego.js";
+import categoryRoutes from "../routes/category.js"; 
 import { Server } from "socket.io";
 
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api/question", questionRoutes);
 app.use("/api/feedback", feedbackRoutes);
 app.use('/api/teachers', teacherRoutes);
 app.use('/api/zego', zegoRoutes);
+app.use('/api/categories', categoryRoutes); 
 
 // MongoDB Connection
 mongoose
