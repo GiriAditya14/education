@@ -6,7 +6,7 @@ export const getAIResponse = async (prompt) => {
     // const baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
     
     const response = await axios.post(
-      `/api/ai`, 
+      `${import.meta.env.VITE_API_URL}/api/ai`, 
       { prompt }, 
       {
         headers: {
