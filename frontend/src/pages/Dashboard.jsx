@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 shadow-lg">
-        <h2 className="text-3xl font-bold text-white">Welcome back, {user?.name}!</h2>
+        <h2 className="text-3xl font-bold text-white">Welcome back, {user?.role}!</h2>
         <p className="text-blue-100 mt-2">
           {user?.role === 'student' ? 'Student' : 'Educator'} Dashboard
         </p>
@@ -82,7 +82,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Video Call Card */}
         <Link 
-          to="/video-call" 
+          to="/join" 
           className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-red-500"
         >
           <div className="flex items-center space-x-4">

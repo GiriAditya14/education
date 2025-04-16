@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // import jwtDecode from 'jwt-decode';
 import { jwtDecode } from "jwt-decode";
 
-import { login as authLogin, register as authRegister } from "../services/auth";
+import { login as authLogin, register as authRegister } from "../services/auth.js";
 
 const AuthContext = createContext();
 
