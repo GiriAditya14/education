@@ -1,3 +1,7 @@
+"Please use the DEMO VIDEO LINK present in this readme for evaluation"
+
+---
+
 ## EduConnect : Real-Time Student-Teacher Collaboration 
 
 A full-stack web application connecting students and teachers with real-time Q&A functionality, feedback system, and video call integration.
@@ -28,32 +32,33 @@ A full-stack web application connecting students and teachers with real-time Q&A
 
 ---
 
-
 ##   Prototype
 
 #### Top platform
-![Chatbot Image Upload](/frontend/public/topPlatform.png) |
+![Chatbot Image Upload](/frontend/public/topPlatform.png) 
 
 #### Top Mentors
-![Chatbot Image Upload](/frontend/public/topMentor.png) |
+![Chatbot Image Upload](/frontend/public/topMentor.png) 
 
 #### Top Institute Mentor
 
-![Chatbot Image Upload](/frontend/public/clgMentor.png) |
+![Chatbot Image Upload](/frontend/public/clgMentor.png) 
 
 ### AI Chatbot
 
-![Chatbot Image Upload](/frontend/public/chatBot.png) |
+![Chatbot Image Upload](/frontend/public/chatBot.png) 
 
----
 ### Video Calling 
 
-![Video Call](/frontend/public/vdoChat.png) |
+![Video Call](/frontend/public/vdoChat.png) 
+
+---
 
 ###  Video Demo
 
+<a href="https://youtu.be/wIkA2IbNNB8"><img src="https://imgs.search.brave.com/H330hjXg0E35DY7KPYi5ItE21yGS7qaIlfM-HpFD67Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZkL1lvdVR1YmVf/ZnVsbC1jb2xvcl9p/Y29uXygyMDI0KS5z/dmc" width="50"></a>
 
-<a href="https://youtu.be/pAkQksQzP18D"><img src="https://imgs.search.brave.com/H330hjXg0E35DY7KPYi5ItE21yGS7qaIlfM-HpFD67Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZkL1lvdVR1YmVf/ZnVsbC1jb2xvcl9p/Y29uXygyMDI0KS5z/dmc" width="50"></a>
+---
 
 ##  Tech Stack
 
@@ -116,6 +121,8 @@ npm run dev
 
 ```
 
+---
+
  ## Frontend Setup
 
 ### Navigate to frontend directory:
@@ -142,6 +149,8 @@ Start the frontend development server:
 ```bash
 npm run dev
 ```
+
+---
 
 ## Project Structure
 
