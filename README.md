@@ -191,3 +191,23 @@ src/
 └── App.jsx            # Main application file
 
 ```
+
+---
+
+## 👥 Team
+- Aditya Giri – Handled backend development, database modeling, API integration, and route protection.
+- Kanak Gupta – Contributed to frontend development with responsive design and page optimizations.
+- Chaitanya Sharma – Strong pillar of our team; managed backend deployment and ensured smooth coordination under pressure.
+- Aditya Mudliar – Handled frontend development, UI design, route integration, and state management.
+
+---
+
+## 📃 License
+Licensed under the MIT License.
+
+---
+
+## 🤝 Acknowledgements
+- NIT Patna for hosting ByteVerse 7.0 Hackathon
+- Hackathon Mentors and Judges for valuable feedback
+
