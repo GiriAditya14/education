@@ -3,11 +3,11 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 
 /**
- * Layout Component
- * Main layout wrapper for authenticated pages
- * Combines Sidebar and Header with responsive design and proper spacing
+ * DashboardLayout Component
+ * Unified layout wrapper combining Sidebar and Header for authenticated pages
+ * Provides consistent structure with responsive design
  */
-const Layout = () => {
+const DashboardLayout = () => {
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden">
       {/* Sidebar Navigation */}
@@ -20,7 +20,7 @@ const Layout = () => {
 
         {/* Page Content */}
         <main className="flex-1 overflow-y-auto">
-          <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
             <Outlet />
           </div>
         </main>
@@ -29,4 +29,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default DashboardLayout;

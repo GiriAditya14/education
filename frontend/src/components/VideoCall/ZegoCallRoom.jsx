@@ -33,10 +33,12 @@ const ZegoCallRoom = () => {
   };
 
   return (
-    <div
-      ref={myMeeting}
-      style={{ width: '100vw', height: '100vh' }}
-    />
+    <div className="w-screen h-screen bg-gray-900">
+      <div
+        ref={myMeeting}
+        style={{ width: '100%', height: '100%' }}
+      />
+    </div>
   );
 };
 

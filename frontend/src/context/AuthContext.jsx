@@ -19,6 +19,7 @@ export const AuthProvider = ({ children }) => {
       setUser(decoded);
       localStorage.setItem("token", token);
     } else {
+      setUser(null);
       localStorage.removeItem("token");
     }
     setLoading(false);
@@ -51,6 +52,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    setUser(null);
     setToken(null);
     navigate("/");
   };

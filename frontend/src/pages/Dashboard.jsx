@@ -1,36 +1,42 @@
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 import { FaChalkboardTeacher, FaQuestionCircle, FaComments, FaVideo, FaChartLine } from 'react-icons/fa';
+import StudentDashboard from '../components/Dashboard/StudentDashboard';
 
 const Dashboard = () => {
   const { user } = useAuth();
 
+  // Render Student Dashboard for students
+  if (user?.role === 'student') {
+    return <StudentDashboard />;
+  }
+
+  // Render Teacher Dashboard (existing implementation)
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 shadow-lg">
-        <h2 className="text-3xl font-bold text-white">Welcome back, {user?.role}!</h2>
-        <p className="text-blue-100 mt-2">
-          {user?.role === 'student' ? 'Student' : 'Educator'} Dashboard
-        </p>
+      {/* Page Header */}
+      <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5 sm:p-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Dashboard</h1>
+        <p className="text-sm sm:text-base text-gray-600 mt-1">Quick access to your teaching tools</p>
       </div>
 
       {user?.role === 'teacher' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Teacher Stats Card */}
           <Link 
             to="/teacher" 
-            className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-blue-500"
+            className="bg-white hover:bg-gray-50 transition-all rounded-xl p-6 shadow-md border-l-4 border-blue-500 group"
           >
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-blue-500/20 rounded-full">
-                <FaChartLine className="text-blue-400 text-xl" />
+              <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors">
+                <FaChartLine className="text-blue-600 text-xl" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Teaching Analytics</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Teaching Analytics</h3>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-gray-600">
               View your teaching statistics, feedback ratings, and past activities.
             </p>
-            <div className="mt-6 text-blue-400 flex items-center">
+            <div className="mt-6 text-blue-600 flex items-center font-medium">
               <span>View Dashboard</span>
               <span className="ml-2">→</span>
             </div>
@@ -39,18 +45,18 @@ const Dashboard = () => {
           {/* Questions Card */}
           <Link 
             to="/questions" 
-            className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-green-500"
+            className="bg-white hover:bg-gray-50 transition-all rounded-xl p-6 shadow-md border-l-4 border-emerald-500 group"
           >
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-green-500/20 rounded-full">
-                <FaQuestionCircle className="text-green-400 text-xl" />
+              <div className="p-3 bg-emerald-100 rounded-full group-hover:bg-emerald-200 transition-colors">
+                <FaQuestionCircle className="text-emerald-600 text-xl" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Student Questions</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Student Questions</h3>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-gray-600">
               Answer pending questions and view your previously answered questions.
             </p>
-            <div className="mt-6 text-green-400 flex items-center">
+            <div className="mt-6 text-emerald-600 flex items-center font-medium">
               <span>View Questions</span>
               <span className="ml-2">→</span>
             </div>
@@ -59,18 +65,18 @@ const Dashboard = () => {
           {/* Feedback Card */}
           <Link 
             to="/feedback" 
-            className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-purple-500"
+            className="bg-white hover:bg-gray-50 transition-all rounded-xl p-6 shadow-md border-l-4 border-purple-500 group"
           >
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-purple-500/20 rounded-full">
-                <FaComments className="text-purple-400 text-xl" />
+              <div className="p-3 bg-purple-100 rounded-full group-hover:bg-purple-200 transition-colors">
+                <FaComments className="text-purple-600 text-xl" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Student Feedback</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Student Feedback</h3>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-gray-600">
               See what your students are saying about your teaching sessions.
             </p>
-            <div className="mt-6 text-purple-400 flex items-center">
+            <div className="mt-6 text-purple-600 flex items-center font-medium">
               <span>View Feedback</span>
               <span className="ml-2">→</span>
             </div>
@@ -79,24 +85,24 @@ const Dashboard = () => {
       )}
 
       {/* Common Features */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {/* Video Call Card */}
         <Link 
           to="/join" 
-          className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-red-500"
+          className="bg-white hover:bg-gray-50 transition-all rounded-xl p-6 shadow-md border-l-4 border-red-500 group"
         >
           <div className="flex items-center space-x-4">
-            <div className="p-3 bg-red-500/20 rounded-full">
-              <FaVideo className="text-red-400 text-xl" />
+            <div className="p-3 bg-red-100 rounded-full group-hover:bg-red-200 transition-colors">
+              <FaVideo className="text-red-600 text-xl" />
             </div>
-            <h3 className="text-xl font-semibold text-white">Video Sessions</h3>
+            <h3 className="text-xl font-semibold text-gray-900">Video Sessions</h3>
           </div>
-          <p className="mt-4 text-gray-300">
+          <p className="mt-4 text-gray-600">
             {user?.role === 'teacher' 
               ? 'Start a teaching session with your students' 
               : 'Connect with your teacher for live help'}
           </p>
-          <div className="mt-6 text-red-400 flex items-center">
+          <div className="mt-6 text-red-600 flex items-center font-medium">
             <span>Start Session</span>
             <span className="ml-2">→</span>
           </div>
@@ -106,18 +112,18 @@ const Dashboard = () => {
         {user?.role === 'teacher' ? (
           <Link 
             to="/questions" 
-            className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-yellow-500"
+            className="bg-white hover:bg-gray-50 transition-all rounded-xl p-6 shadow-md border-l-4 border-amber-500 group"
           >
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-yellow-500/20 rounded-full">
-                <FaChalkboardTeacher className="text-yellow-400 text-xl" />
+              <div className="p-3 bg-amber-100 rounded-full group-hover:bg-amber-200 transition-colors">
+                <FaChalkboardTeacher className="text-amber-600 text-xl" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Teaching History</h3>
+              <h3 className="text-xl font-semibold text-gray-900">Teaching History</h3>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-gray-600">
               Review your past teaching sessions and student interactions.
             </p>
-            <div className="mt-6 text-yellow-400 flex items-center">
+            <div className="mt-6 text-amber-600 flex items-center font-medium">
               <span>View History</span>
               <span className="ml-2">→</span>
             </div>
@@ -125,18 +131,18 @@ const Dashboard = () => {
         ) : (
           <Link 
             to="/questions" 
-            className="bg-gray-800 hover:bg-gray-700 transition-all rounded-xl p-6 shadow-md border-l-4 border-blue-500"
+            className="bg-white hover:bg-gray-50 transition-all rounded-xl p-6 shadow-md border-l-4 border-blue-500 group"
           >
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-blue-500/20 rounded-full">
-                <FaQuestionCircle className="text-blue-400 text-xl" />
+              <div className="p-3 bg-blue-100 rounded-full group-hover:bg-blue-200 transition-colors">
+                <FaQuestionCircle className="text-blue-600 text-xl" />
               </div>
-              <h3 className="text-xl font-semibold text-white">My Questions</h3>
+              <h3 className="text-xl font-semibold text-gray-900">My Questions</h3>
             </div>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-gray-600">
               View all your submitted questions and their status.
             </p>
-            <div className="mt-6 text-blue-400 flex items-center">
+            <div className="mt-6 text-blue-600 flex items-center font-medium">
               <span>View Questions</span>
               <span className="ml-2">→</span>
             </div>

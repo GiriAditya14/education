@@ -19,12 +19,12 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900/90 text-white px-4">
-      <div className="bg-gray-800/90 p-8 rounded-xl shadow-xl w-full max-w-md border border-gray-800">
-        <h2 className="text-3xl font-bold mb-6 text-center">Welcome Back</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-900/90 text-white px-4 py-8">
+      <div className="bg-gray-800/90 p-6 sm:p-8 rounded-xl shadow-xl w-full max-w-md border border-gray-800">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">Welcome Back</h2>
         
         {error && (
-          <div className="mb-4 p-3 bg-red-600/90 text-white rounded-md shadow">
+          <div className="mb-4 p-3 bg-red-600/90 text-white rounded-md shadow text-sm">
             {error}
           </div>
         )}
@@ -39,7 +39,7 @@ const Login = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 sm:py-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
               placeholder="you@example.com"
               required
             />
@@ -54,7 +54,7 @@ const Login = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 sm:py-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
               placeholder="••••••••"
               required
             />
@@ -62,7 +62,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-200 font-semibold shadow-md"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-2 px-4 rounded-md transition duration-200 font-semibold shadow-md text-base"
           >
             Sign In
           </button>

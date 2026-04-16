@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { FaPaperPlane } from "react-icons/fa";
+import { Send, Sparkles, Trash2 } from "lucide-react";
 import { getAIResponse } from "../../services/ai";
+import Card, { CardHeader, CardBody } from "../UI/Card";
+import Button from "../UI/Button";
+import EmptyState from "../UI/EmptyState";
 
 const ChatInterface = () => {
   const [message, setMessage] = useState("");
@@ -71,88 +74,139 @@ const ChatInterface = () => {
   };
 
   return (
-    <div className="flex flex-col h-150 max-h-screen bg-gray-800 rounded-lg overflow-hidden">
+    <Card className="flex flex-col h-[calc(100vh-12rem)] max-w-5xl mx-auto">
       {/* Header */}
-      <div className="p-4 bg-gray-700 border-b border-gray-600">
-        <h2 className="text-xl font-semibold text-white">
-          AI Learning Assistant
-        </h2>
-      </div>
-
-      {/* Chat messages */}
-      <div
-        ref={chatBoxRef}
-        className="flex-1 overflow-y-auto flex flex-col-reverse p-4 space-y-reverse space-y-4"
-      >
-        {messages.length === 0 && (
-          <div className="text-center text-gray-400 mt-10">
-            Ask me anything about your courses or learning materials
-          </div>
-        )}
-
-        {[...messages].reverse().map((msg, index) => (
-          <div
-            key={index}
-            className={`max-w-3xl mx-4 ${
-              msg.sender === "user"
-                ? "ml-auto bg-blue-600 text-white"
-                : "mr-auto bg-gray-700"
-            } p-3 rounded-lg`}
-          >
-            {msg.text.includes("\n") ? (
-              <pre className="whitespace-pre-wrap bg-gray-800/50 p-2 rounded">
-                {msg.text}
-              </pre>
-            ) : (
-              msg.text
-            )}
-          </div>
-        ))}
-
-        {isLoading && (
-          <div className="mr-auto bg-gray-700 p-3 rounded-lg max-w-3xl mx-4">
-            <div className="flex space-x-2">
-              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+      <CardHeader className="bg-gradient-to-r from-blue-700 to-blue-900">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="bg-white/20 p-2 rounded-lg">
+              <Sparkles className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-white">
+                AI Learning Assistant
+              </h2>
+              <p className="text-blue-100 text-sm">
+                Ask me anything about your courses or learning materials
+              </p>
             </div>
           </div>
-        )}
-      </div>
+          
+          {messages.length > 0 && (
+            <Button
+              variant="danger"
+              size="sm"
+              onClick={() => {
+                localStorage.removeItem("aiChats");
+                setMessages([]);
+              }}
+              className="flex items-center space-x-2"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Clear Chat</span>
+            </Button>
+          )}
+        </div>
+      </CardHeader>
 
-      {/* Fixed Input form */}
-      <div className="border-t border-gray-600 bg-gray-800 p-4">
-        <form onSubmit={handleSubmit} className="flex">
+      {/* Chat messages */}
+      <CardBody className="flex-1 overflow-y-auto p-6 bg-gray-50">
+        <div
+          ref={chatBoxRef}
+          className="flex flex-col space-y-4 min-h-full"
+        >
+          {messages.length === 0 ? (
+            <EmptyState
+              icon={<Sparkles className="w-16 h-16 text-blue-600" />}
+              title="Start a Conversation"
+              message="Ask me anything about your courses, learning materials, or get help with your studies. I'm here to assist you!"
+              className="flex-1 flex flex-col justify-center"
+            />
+          ) : (
+            <>
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex ${
+                    msg.sender === "user" ? "justify-end" : "justify-start"
+                  }`}
+                >
+                  <div
+                    className={`max-w-3xl rounded-lg p-4 shadow-sm ${
+                      msg.sender === "user"
+                        ? "bg-blue-700 text-white"
+                        : "bg-white text-gray-900 border border-gray-200"
+                    }`}
+                  >
+                    {msg.sender === "ai" && (
+                      <div className="flex items-center space-x-2 mb-2">
+                        <Sparkles className="w-4 h-4 text-blue-600" />
+                        <span className="text-xs font-semibold text-blue-600">
+                          AI Assistant
+                        </span>
+                      </div>
+                    )}
+                    
+                    {msg.text.includes("\n") ? (
+                      <pre className={`whitespace-pre-wrap font-sans ${
+                        msg.sender === "user" 
+                          ? "bg-blue-800/30 p-3 rounded" 
+                          : "bg-gray-50 p-3 rounded"
+                      }`}>
+                        {msg.text}
+                      </pre>
+                    ) : (
+                      <p className="leading-relaxed">{msg.text}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm max-w-3xl">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Sparkles className="w-4 h-4 text-blue-600" />
+                      <span className="text-xs font-semibold text-blue-600">
+                        AI Assistant
+                      </span>
+                    </div>
+                    <div className="flex space-x-2">
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </CardBody>
+
+      {/* Input form */}
+      <div className="border-t border-gray-200 bg-white p-6">
+        <form onSubmit={handleSubmit} className="flex space-x-3">
           <input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="flex-1 p-2 bg-gray-700 rounded-l-lg focus:outline-none text-white"
+            className="flex-1 px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500 transition-all"
             placeholder="Type your question..."
             disabled={isLoading}
           />
-          <button
+          <Button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 px-4 rounded-r-lg disabled:opacity-50 text-white"
+            variant="primary"
             disabled={isLoading || !message.trim()}
+            className="flex items-center space-x-2"
           >
-            <FaPaperPlane />
-          </button>
+            <Send className="w-5 h-5" />
+            <span className="hidden sm:inline">Send</span>
+          </Button>
         </form>
-
-        <div className="mt-2 text-right">
-          <button
-            onClick={() => {
-              localStorage.removeItem("aiChats");
-              setMessages([]);
-            }}
-            className="text-sm text-red-400 underline hover:text-red-600"
-          >
-            Clear Chat
-          </button>
-        </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
